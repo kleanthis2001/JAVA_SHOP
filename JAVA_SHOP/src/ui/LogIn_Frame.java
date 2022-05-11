@@ -1,3 +1,4 @@
+package ui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,6 +14,7 @@ public class LogIn_Frame  extends JFrame{
 	private JButton Register_Button,LogIn_Button;
 	private JFrame LogInFrame;
 	
+	//initialize  frame and panels 
 	public LogIn_Frame() {
 		JPanel panel = new JPanel();
 		JPanel panel_upper = new JPanel();
@@ -61,6 +63,7 @@ public class LogIn_Frame  extends JFrame{
 		
 		LogInFrame.setLocationRelativeTo(null);
 	    LogInFrame.getContentPane().add(panel);
+	    
 	    LogInFrame.setVisible(true);
 	}
 }

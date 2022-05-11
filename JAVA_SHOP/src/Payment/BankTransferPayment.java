@@ -1,3 +1,4 @@
+package Payment;
 
 public class BankTransferPayment extends Payment{
 	private String BankName;

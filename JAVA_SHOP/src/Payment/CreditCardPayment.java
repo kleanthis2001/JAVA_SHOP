@@ -1,3 +1,4 @@
+package Payment;
 
 public class CreditCardPayment extends Payment {
 	private long CardNumber;

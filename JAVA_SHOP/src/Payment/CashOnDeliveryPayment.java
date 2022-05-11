@@ -1,3 +1,4 @@
+package Payment;
 
 public class CashOnDeliveryPayment extends Payment{
 	private double extra_amount;
