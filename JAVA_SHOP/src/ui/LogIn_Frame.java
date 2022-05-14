@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -46,6 +48,16 @@ public class LogIn_Frame  extends JFrame{
 		Username_Field.setSize(40,10);
 		Password_Field.setSize(40,10);
 		Register_Button.setText("Register");
+		Register_Button.addActionListener(new  ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				dispose();
+				new  RegisterFrame();
+				
+			}
+		});
 		LogIn_Button.setText("Login");
 		
 		panel_center.add(Username);

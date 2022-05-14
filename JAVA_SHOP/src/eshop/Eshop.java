@@ -1,5 +1,6 @@
 package eshop;
 import ui.LogIn_Frame;
+import ui.RegisterFrame;
 
 public class Eshop {
 
