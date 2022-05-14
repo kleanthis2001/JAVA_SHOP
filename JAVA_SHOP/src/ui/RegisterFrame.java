@@ -26,7 +26,7 @@ public class RegisterFrame extends JFrame {
 	private JCheckBox Newsletter ;
 	private JButton RegisterButton;
 	private JFrame RegisterFrame;
-	private JPanel panel,center_panel,panel1,panel2,panel3,panel4;
+	private JPanel panel,center_panel,panel1,panel2,panel3,panel4,panel5;
 	
 	public  RegisterFrame() {
 		//JLabel initialize
@@ -50,7 +50,6 @@ public class RegisterFrame extends JFrame {
 		
 		//JButton initilize 
 		RegisterButton = new JButton("Register");
-		
 		
 		//JCheckbox initilize
 		Newsletter = new JCheckBox("Newsletter update");
@@ -76,8 +75,6 @@ public class RegisterFrame extends JFrame {
 				
 				Customer aCustomer = new  Customer(aAddress, aAddress, aDate, Newsletter, aname, aUsername,
 													aPhone, aemail, aPassword, aDate);
-				System.out.println(aAddress+aAddress+ aDate+Newsletter.toString()+ aname+ aUsername+
-						aPhone+ aemail+ aPassword+ aDate);
 				EshopData.getUsers().add(aCustomer);
 				
 			}
@@ -95,13 +92,15 @@ public class RegisterFrame extends JFrame {
 		panel4 = new JPanel();
 		panel4.setPreferredSize(new Dimension(50, 50));
 		center_panel = new JPanel();
-		center_panel.setLayout(new GridLayout(8, 2,40,40));
-		
+		center_panel.setLayout(new GridLayout(8, 2,40,30));
+		panel5 = new JPanel();
+		panel5.add(RegisterButton,BorderLayout.LINE_START);
 		panel.add(center_panel,BorderLayout.CENTER);
 		panel.add(panel1,BorderLayout.WEST);
 		panel.add(panel2,BorderLayout.EAST);
 		panel.add(panel3,BorderLayout.SOUTH);
 		panel.add(panel4,BorderLayout.NORTH);
+		
 		
 		center_panel.add(Name);
 		center_panel.add(name_field);
@@ -118,7 +117,7 @@ public class RegisterFrame extends JFrame {
 		center_panel.add(telephone);
 		center_panel.add(telephone_field);
 		center_panel.add(Newsletter);
-		center_panel.add(RegisterButton);
+		center_panel.add(panel5);
 		
 		RegisterFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		RegisterFrame.setSize(600,600);
