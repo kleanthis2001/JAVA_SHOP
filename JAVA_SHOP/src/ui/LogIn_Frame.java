@@ -9,6 +9,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import Data.EshopData;
+import entities.User;
+import eshop.Eshop;
+
 
 public class LogIn_Frame  extends JFrame{
 	private JLabel Username,Password;
@@ -53,12 +57,31 @@ public class LogIn_Frame  extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				dispose();
 				new  RegisterFrame();
+				dispose();
+				LogInFrame.setVisible(false);
 				
 			}
 		});
 		LogIn_Button.setText("Login");
+		LogIn_Button.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				String Username = Username_Field.getText();
+				String Password = Password_Field.getText();
+				for(User a:EshopData.getUsers()) {
+					if(Username == a.getUsername()) {
+						if (Password == a.getPassword()) {
+							new MainUI();
+							dispose();
+							LogInFrame.setVisible(false);
+						}
+					}
+				}
+			}
+		});
 		
 		panel_center.add(Username);
 		panel_center.add(Username_Field);

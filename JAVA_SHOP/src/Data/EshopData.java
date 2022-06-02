@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import entities.*;
 public class EshopData {
 	private static ArrayList<User> users = new ArrayList<User>();
-
+	
 	public static ArrayList<User> getUsers() {
 		return users;
 	}
