@@ -9,7 +9,7 @@ public class Customer extends User{
     private Date birthdate;
     private boolean newsletterRegistered;
     
-    public Customer(String shippingAddress, String paymentAddress, Date birthdate, boolean newsletterRegistered, String name, String username, String telephone, String email, String password, Date dateRegistered) {
+    public Customer(String name, String username, String telephone, String email, String password, Date dateRegistered,String shippingAddress, String paymentAddress, Date birthdate, boolean newsletterRegistered) {
         super(name, username, telephone, email, password, dateRegistered);
         this.shippingAddress = shippingAddress;
         this.paymentAddress = paymentAddress;

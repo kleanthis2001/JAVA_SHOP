@@ -2,11 +2,12 @@ package entities;
 
 public class ProductInOrder {
 	private Product product;
-	private int quantity;
+	private int quantity = 1 ;
+	private double totalPrice ;
 	
-	public ProductInOrder(Product aProd,int aquntity) {
+	public ProductInOrder(Product aProd) {
 		product = aProd;
-		quantity = aquntity;
+		this.totalPrice =  aProd.getPrice();
 	}
 	public Product getProduct() {
 		return product;
@@ -21,9 +22,13 @@ public class ProductInOrder {
 		this.quantity = quantity;
 	}
 	
-	public float getTotalPrice() {
-		return quantity * product.getPrice();
+	public void setTotalPrice() {
+		this.totalPrice =  quantity * product.getPrice();
 		
+	}
+	
+	public double getTotalPrice() {
+		return  totalPrice;
 	}
 	
 }

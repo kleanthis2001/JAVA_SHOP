@@ -22,6 +22,7 @@ public class LogIn_Frame  extends JFrame{
 	
 	//initialize  frame and panels 
 	public LogIn_Frame() {
+		LogInFrame = new JFrame();
 		JPanel panel = new JPanel();
 		JPanel panel_upper = new JPanel();
 		panel_upper.setPreferredSize(new Dimension(30, 30));
@@ -69,17 +70,26 @@ public class LogIn_Frame  extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				String Username = Username_Field.getText();
-				String Password = Password_Field.getText();
-				for(User a:EshopData.getUsers()) {
-					if(Username == a.getUsername()) {
-						if (Password == a.getPassword()) {
-							new MainUI();
+				String aUsername = Username_Field.getText();
+				//System.out.println(aUsername);
+				String aPassword = Password_Field.getText();
+				//System.out.println(aPassword);
+				for(User a:EshopData.users) {
+					System.out.println(a.getUsername());
+					if(aUsername.equals(a.getUsername())) {
+						//JOptionPane.showMessageDialog(null, "username found");
+						if (aPassword.equals(a.getPassword())) {
+							//JOptionPane.showMessageDialog(null, "password found");
+							 ShoppingCart cart = new ShoppingCart();
+							 MainUI ui = new MainUI(cart);
+							 ui.generateViewWithProducts(EshopData.products); 
 							dispose();
 							LogInFrame.setVisible(false);
 						}
+						else 
+							JOptionPane.showMessageDialog(null,"Invalid Password");
 					}
-				}
+				 } 
 			}
 		});
 		
@@ -91,7 +101,6 @@ public class LogIn_Frame  extends JFrame{
 		panel_center.add(LogIn_Button);
 
 		
-		LogInFrame = new JFrame();
 		LogInFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		LogInFrame.setSize(300,300);
 		LogInFrame.setTitle("Login");

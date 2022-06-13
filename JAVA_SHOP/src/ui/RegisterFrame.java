@@ -11,8 +11,10 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 
 import Data.EshopData;
 import entities.Customer;
@@ -64,6 +66,7 @@ public class RegisterFrame extends JFrame {
 				String 	aUsername = Username_field.getText();
 				String  aPassword = Password_field.getText();
 				Date  aDate = new Date();
+				aDate = null;
 				String aAddress = Address_field.getText();
 				String aPhone = telephone_field.getText();
 				Boolean Newsletter ;
@@ -73,9 +76,18 @@ public class RegisterFrame extends JFrame {
 				}else
 					Newsletter = false;
 				
-				Customer aCustomer = new  Customer(aAddress, aAddress, aDate, Newsletter, aname, aUsername,
-													aPhone, aemail, aPassword, aDate);
-				EshopData.getUsers().add(aCustomer);
+			try {
+				Customer aCustomer = new  Customer(aname, aUsername,
+						aPhone, aemail, aPassword, aDate,aAddress, aAddress, aDate, Newsletter);
+				EshopData.users.add(aCustomer);
+				JOptionPane.showMessageDialog(null, "Succesfully Register");
+				dispose();
+				RegisterFrame.setVisible(false);
+				new LogIn_Frame();
+			} catch (Exception e) {
+				// TODO: handle exception
+				JOptionPane.showMessageDialog(null, "Error");
+			}	
 				
 			}
 		});
